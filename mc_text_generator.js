@@ -1,3 +1,16 @@
+/*
+
+Code for adding a cube:
+
+new Cube({
+    name: "test_cube",
+    from: [0, 0, 0],
+    to: [1, 1, 1],
+    export: true
+}).init()
+
+*/
+
 (async function() {
     let aboutAction
     const id = "mc_text_generator"
