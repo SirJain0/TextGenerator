@@ -27,6 +27,7 @@
             addAboutButton()
         },
         onunload() {
+            Blockbench.showQuickMessage("Uninstalled " + name, 2000)
             aboutAction.delete()
             MenuBar.removeAction(`help.about_plugins.about_${id}`)
         }
