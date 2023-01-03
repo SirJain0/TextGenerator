@@ -2,14 +2,14 @@
 
 Code for adding a cube and making it in its own group:
 
-let letterGroup = new Group({name: "letter_" + formData.input}).init()
+let textGroup = new Group({name: "text_" + formData.input}).init()
 
 new Cube({
-    name: "letter_" + formData.input,
+    name: "text_" + formData.input,
     from: [0, 0, 0],
     to: [1, 1, 1],
     export: true,
-}).addTo(letterGroup).init()
+}).addTo(textGroup).init()
 
 */
 
@@ -131,7 +131,7 @@ new Cube({
                         text-align: left!important;
                         margin: 0!important;
                     }
-                    
+
                     dialog#about .socials {
                         padding: 0!important;
                     }
