@@ -22,17 +22,50 @@
         version: "1.0.0",
         min_version: "4.0.0",
         variant: "both",
+
         oninstall: () => showAbout(true),
         onload() {
             addAboutButton()
+
+            const textAction = new Action({
+                id: "generate_text_action",
+                name: "Generate Text",
+                icon: icon,
+                description: "Input some text and let Blockbench generate the letters.",
+                click: () => showGenerateTextDialog()
+            })
+
+            MenuBar.addAction(textAction, "tools")
         },
         onunload() {
             Blockbench.showQuickMessage("Uninstalled " + name, 2000)
             aboutAction.delete()
             MenuBar.removeAction(`help.about_plugins.about_${id}`)
+            MenuBar.removeAction("tools.generate_text_action")
         }
     })
 
+    // Shows the dialog that allows users to input text
+    function showGenerateTextDialog() {
+        const generateTextDialog = new Blockbench.Dialog({
+            name: "Generate Text",
+            icon: icon,
+            form: {
+                input: {
+                    label: "Enter Text",
+                    type: "text",
+                    value: ""
+                },
+            },
+
+            onConfirm() {
+                Blockbench.showQuickMessage("Added text!")
+                generateTextDialog.hide()
+            }
+        }).show()
+    }
+
+    // Add about button
     function addAboutButton() {
         let about = MenuBar.menus.help.structure.find(e => e.id === "about_plugins")
 
