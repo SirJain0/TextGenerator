@@ -58,9 +58,16 @@
                 },
             },
 
-            onConfirm() {
-                Blockbench.showQuickMessage("Added text!")
-                generateTextDialog.hide()
+            onConfirm(formData) {
+                if (formData.input == "") {
+                    Blockbench.showMessageBox({
+                        title: "No valid text",
+                        message: "Make sure you don't leave the field blank."
+                    })
+                } else {
+                    Blockbench.showQuickMessage("Added text!")
+                    generateTextDialog.hide()
+                }
             }
         }).show()
     }
