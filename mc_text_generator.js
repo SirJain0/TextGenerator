@@ -50,6 +50,7 @@
         const generateTextDialog = new Blockbench.Dialog({
             name: "Generate Text",
             icon: icon,
+            buttons: ["Generate", "Cancel"],
             form: {
                 input: {
                     label: "Enter Text",
