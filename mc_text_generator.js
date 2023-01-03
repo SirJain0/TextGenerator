@@ -131,6 +131,7 @@ new Cube({
                         text-align: left!important;
                         margin: 0!important;
                     }
+                    
                     dialog#about .socials {
                         padding: 0!important;
                     }
