@@ -95,11 +95,11 @@
                     <p>placeholder</p>
                     <div class="socials">
                         <a href="${links["twitter"]}" class="open-in-browser">
-                            <i class="icon material-icons" style="color:#33E38E">language</i>
+                            <i class="fa-brands fa-twitter" style="color:#1DA1F2"></i>
                             <label>By ${author}</label>
                         </a>
                         <a href="${links["discord"]}" class="open-in-browser">
-                            <i class="icon fab fa-discord" style="color:#727FFF"></i>
+                            <i class="fa-brands fa-discord" style="color:#5865F2"></i>
                             <label>Discord Server</label>
                         </a>
                     </div>
