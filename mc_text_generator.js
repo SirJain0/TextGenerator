@@ -1,13 +1,15 @@
 /*
 
-Code for adding a cube:
+Code for adding a cube and making it in its own group:
+
+let letterGroup = new Group({name: "letter_" + formData.input}).init()
 
 new Cube({
-    name: "test_cube",
+    name: "letter_" + formData.input,
     from: [0, 0, 0],
     to: [1, 1, 1],
-    export: true
-}).init()
+    export: true,
+}).addTo(letterGroup).init()
 
 */
 
