@@ -79,7 +79,7 @@ new Cube({
                         message: "Make sure you don't leave the field blank."
                     })
                 } else {
-                    Blockbench.showQuickMessage("Added text!")
+                    Blockbench.showQuickMessage("Generated text!")
                     generateTextDialog.hide()
                 }
             }
