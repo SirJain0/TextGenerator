@@ -1,18 +1,3 @@
-/*
-
-Code for adding a cube and making it in its own group:
-
-let textGroup = new Group({name: "text_" + formData.input}).init()
-
-new Cube({
-    name: "text_" + formData.input,
-    from: [0, 0, 0],
-    to: [1, 1, 1],
-    export: true,
-}).addTo(textGroup).init()
-
-*/
-
 (async function() {
     let aboutAction
     const id = "mc_text_generator"
