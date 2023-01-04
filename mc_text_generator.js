@@ -83,6 +83,10 @@ new Cube({
                 } else {
                     Blockbench.showQuickMessage("Generated text!")
                     generateTextDialog.hide()
+
+                    for (var i = 0; i < formData.input.length; i++) {
+                        console.log(formData.input.charAt(i));
+                    }
                 }
             }
         }).show()
