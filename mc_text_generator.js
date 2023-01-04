@@ -86,9 +86,12 @@ new Cube({
 
                     const charMap = {
                         a: {
-                            width: 3,
+                            width: 7,
                             cubes: [
-                                [0, 0, 0, 1, 1, 1]
+                                [0, 0, 0, 2, 8, 2],
+                                [2, 6, 0, 4, 8, 2],
+                                [4, 0, 0, 6, 8, 2],
+                                [2, 3, 0, 4, 5, 2]
                             ]
                         },
                         b: {
@@ -100,7 +103,7 @@ new Cube({
                     }
                       
                     let offset = 0
-                    for (const char of formData.input) {
+                    for (const char of formData.input.toLowerCase()) {
                         for (const cube of charMap[char].cubes) {
                             new Cube({
                                 name: "text_" + formData.input,
