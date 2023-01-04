@@ -103,6 +103,7 @@ new Cube({
                     for (const char of formData.input) {
                         for (const cube of charMap[char].cubes) {
                             new Cube({
+                                name: "text_" + formData.input,
                                 from: [cube[0] + offset, cube[1], cube[2]],
                                 to: [cube[3] + offset, cube[4], cube[5]]
                             }).init()
