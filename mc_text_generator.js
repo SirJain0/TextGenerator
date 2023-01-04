@@ -84,8 +84,31 @@ new Cube({
                     Blockbench.showQuickMessage("Generated text!")
                     generateTextDialog.hide()
 
-                    for (var i = 0; i < formData.input.length; i++) {
-                        console.log(formData.input.charAt(i));
+                    const charMap = {
+                        a: {
+                            width: 3,
+                            cubes: [
+                                [0, 0, 0, 1, 1, 1]
+                            ]
+                        },
+                        b: {
+                            width: 3,
+                            cubes: [
+                                [0, 0, 0, 2, 2, 2]
+                            ]
+                        }
+                    }
+                      
+                    let offset = 0
+                    for (const char of formData.input) {
+                        for (const cube of charMap[char].cubes) {
+                            new Cube({
+                                from: [cube[0] + offset, cube[1], cube[2]],
+                                to: [cube[3] + offset, cube[4], cube[5]]
+                            }).init()
+                        }
+
+                        offset += charMap[char].width + 1
                     }
                 }
             }
