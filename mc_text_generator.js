@@ -84,6 +84,7 @@ new Cube({
                     Blockbench.showQuickMessage("Generated text!")
                     generateTextDialog.hide()
 
+                    // Character maps - each array in the 'cubes' component represents a cube.
                     const charMap = {
                         a: {
                             width: 6,
