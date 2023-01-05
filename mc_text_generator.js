@@ -154,7 +154,7 @@
                             }).addTo(textGroup).init()
                         }
 
-                        offset += charMap[char].width + 1
+                        offset += charMap[char].width + 0.3
                     }
                 }
             }
