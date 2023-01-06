@@ -67,12 +67,19 @@
                 },
     
                 onConfirm(formData) {
+
+                    // Check - Did the user leave fields blank?
                     if (formData.input == "") {
                         Blockbench.showMessageBox({
                             title: "No valid text",
                             message: "Make sure you don't leave the field blank."
                         })
-                    } else {
+
+                        generateTextDialog.hide()
+                    } 
+                    
+                    // Run if everything is okay
+                    else {
                         Blockbench.showQuickMessage("Generated text!")
                         generateTextDialog.hide()
     
