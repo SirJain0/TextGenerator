@@ -74,6 +74,14 @@
                     min: 0,
                     max: 6,
                     description: "The amount of space between words."
+                },
+                depth: {
+                    label: "Depth",
+                    type: "number",
+                    value: 2,
+                    min: 0,
+                    max: 8,
+                    description: "The thickness of the letters. If 0, the letters will appear flat."
                 }
             },
 
@@ -92,78 +100,78 @@
                         a: {
                             width: 6,
                             cubes: [
-                                [0, 0, 0, 2, 8, 2],
-                                [2, 6, 0, 4, 8, 2],
-                                [4, 0, 0, 6, 8, 2],
-                                [2, 3, 0, 4, 5, 2]
+                                [0, 0, 0, 2, 8, formData.depth],
+                                [2, 6, 0, 4, 8, formData.depth],
+                                [4, 0, 0, 6, 8, formData.depth],
+                                [2, 3, 0, 4, 5, formData.depth]
                             ]
                         },
                         c: {
                             width: 5,
                             cubes: [
-                                [0, 0, 0, 2, 8, 2],
-                                [2, 6, 0, 5, 8, 2],
-                                [2, 0, 0, 5, 2, 2]
+                                [0, 0, 0, 2, 8, formData.depth],
+                                [2, 6, 0, 5, 8, formData.depth],
+                                [2, 0, 0, 5, 2, formData.depth]
                             ]
                         },
                         e: {
                             width: 5,
                             cubes: [
-                                [0, 0, 0, 2, 8, 2],
-                                [2, 6, 0, 5, 8, 2],
-                                [2, 3, 0, 5, 5, 2],
-                                [2, 0, 0, 5, 2, 2]
+                                [0, 0, 0, 2, 8, formData.depth],
+                                [2, 6, 0, 5, 8, formData.depth],
+                                [2, 3, 0, 5, 5, formData.depth],
+                                [2, 0, 0, 5, 2, formData.depth]
                             ]
                         },
                         f: {
                             width: 5,
                             cubes: [
-                                [0, 0, 0, 2, 8, 2],
-                                [2, 6, 0, 5, 8, 2],
-                                [2, 3, 0, 5, 5, 2]
+                                [0, 0, 0, 2, 8, formData.depth],
+                                [2, 6, 0, 5, 8, formData.depth],
+                                [2, 3, 0, 5, 5, formData.depth]
                             ]
                         },
                         i: {
                             width: 2,
                             cubes: [
-                                [0, 0, 0, 2, 8, 2]
+                                [0, 0, 0, 2, 8, formData.depth]
                             ]
                         },
                         l: {
                             width: 5,
                             cubes: [
-                                [0, 0, 0, 2, 8, 2],
-                                [2, 0, 0, 5, 2, 2]
+                                [0, 0, 0, 2, 8, formData.depth],
+                                [2, 0, 0, 5, 2, formData.depth]
                             ]
                         },
                         o: {
                             width: 6,
                             cubes: [
-                                [0, 0, 0, 2, 8, 2],
-                                [2, 6, 0, 4, 8, 2],
-                                [4, 0, 0, 6, 8, 2],
-                                [2, 0, 0, 4, 2, 2]
+                                [0, 0, 0, 2, 8, formData.depth],
+                                [2, 6, 0, 4, 8, formData.depth],
+                                [4, 0, 0, 6, 8, formData.depth],
+                                [2, 0, 0, 4, 2, formData.depth]
                             ]
                         },
                         u: {
                             width: 6,
                             cubes: [
-                                [0, 0, 0, 2, 8, 2],
-                                [4, 0, 0, 6, 8, 2],
-                                [2, 0, 0, 4, 2, 2]
+                                [0, 0, 0, 2, 8, formData.depth],
+                                [4, 0, 0, 6, 8, formData.depth],
+                                [2, 0, 0, 4, 2, formData.depth]
                             ]
                         },
                         ".": {
                             width: 2,
                             cubes: [
-                                [0, 0, 0, 2, 2, 2]
+                                [0, 0, 0, 2, 2, formData.depth]
                             ]
                         },
                         "!": {
                             width: 2,
                             cubes: [
-                                [0, 0, 0, 2, 2, 2],
-                                [0, 4, 0, 2, 8, 2]
+                                [0, 0, 0, 2, 2, formData.depth],
+                                [0, 4, 0, 2, 8, formData.depth]
                             ]
                         },
                         " ": {
