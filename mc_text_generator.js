@@ -27,12 +27,163 @@
         onload() {
             addAboutButton()
 
+            const generateTextDialog = new Blockbench.Dialog({
+                name: "Generate Text",
+                icon: icon,
+                buttons: ["Generate", "Cancel"],
+                form: {
+                    input: {
+                        label: "Enter Text",
+                        type: "text",
+                        value: "",
+                        description: "Blockbench will take this and generate 3D text."
+                    },
+                    divider: "_",
+                    letterSpace: {
+                        label: "Letter Spacing",
+                        type: "number",
+                        min: 0,
+                        max: 6,
+                        value: 0.3,
+                        description: "The amount of space between letters."
+                    },
+                    wordSpace: {
+                        label: "Word Spacing",
+                        type: "number",
+                        value: 2,
+                        min: 0,
+                        max: 6,
+                        description: "The amount of space between words."
+                    },
+                    depth: {
+                        label: "Depth",
+                        type: "number",
+                        min: 0,
+                        value: 2,
+                        max: 8,
+                        description: "The thickness of the letters. If 0, the letters will appear flat."
+                    }
+                },
+    
+                onConfirm(formData) {
+                    if (formData.input == "") {
+                        Blockbench.showMessageBox({
+                            title: "No valid text",
+                            message: "Make sure you don't leave the field blank."
+                        })
+                    } else {
+                        Blockbench.showQuickMessage("Generated text!")
+                        generateTextDialog.hide()
+    
+                        // Character maps - each array in the 'cubes' component represents a cube.
+                        const charMap = {
+                            a: {
+                                width: 6,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth],
+                                    [2, 6, 0, 4, 8, formData.depth],
+                                    [4, 0, 0, 6, 8, formData.depth],
+                                    [2, 3, 0, 4, 5, formData.depth]
+                                ]
+                            },
+                            c: {
+                                width: 5,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth],
+                                    [2, 6, 0, 5, 8, formData.depth],
+                                    [2, 0, 0, 5, 2, formData.depth]
+                                ]
+                            },
+                            e: {
+                                width: 5,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth],
+                                    [2, 6, 0, 5, 8, formData.depth],
+                                    [2, 3, 0, 5, 5, formData.depth],
+                                    [2, 0, 0, 5, 2, formData.depth]
+                                ]
+                            },
+                            f: {
+                                width: 5,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth],
+                                    [2, 6, 0, 5, 8, formData.depth],
+                                    [2, 3, 0, 5, 5, formData.depth]
+                                ]
+                            },
+                            i: {
+                                width: 2,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth]
+                                ]
+                            },
+                            l: {
+                                width: 5,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth],
+                                    [2, 0, 0, 5, 2, formData.depth]
+                                ]
+                            },
+                            o: {
+                                width: 6,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth],
+                                    [2, 6, 0, 4, 8, formData.depth],
+                                    [4, 0, 0, 6, 8, formData.depth],
+                                    [2, 0, 0, 4, 2, formData.depth]
+                                ]
+                            },
+                            u: {
+                                width: 6,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth],
+                                    [4, 0, 0, 6, 8, formData.depth],
+                                    [2, 0, 0, 4, 2, formData.depth]
+                                ]
+                            },
+                            ".": {
+                                width: 2,
+                                cubes: [
+                                    [0, 0, 0, 2, 2, formData.depth]
+                                ]
+                            },
+                            "!": {
+                                width: 2,
+                                cubes: [
+                                    [0, 0, 0, 2, 2, formData.depth],
+                                    [0, 4, 0, 2, 8, formData.depth]
+                                ]
+                            },
+                            " ": {
+                                width: formData.wordSpace,
+                                cubes: []
+                            }
+                        }
+                        
+                        let offset = 0
+                        let textGroup = new Group('text_' + formData.input).init()
+    
+                        for (const char of formData.input.toLowerCase()) {
+                            for (const cube of charMap[char].cubes) {
+                                new Cube({
+                                    name: "text_" + formData.input,
+                                    from: [cube[0] + offset, cube[1], cube[2]],
+                                    to: [cube[3] + offset, cube[4], cube[5]]
+                                }).addTo(textGroup).init()
+                            }
+    
+                            offset += charMap[char].width + formData.letterSpace
+                        }
+                    }
+                }
+            })
+
             const textAction = new Action({
                 id: "generate_text_action",
                 name: "Generate Text",
                 icon: icon,
                 description: "Input some text and let Blockbench generate the letters.",
-                click: () => showGenerateTextDialog()
+                click: () => generateTextDialog.show()
             })
 
             MenuBar.addAction(textAction, "tools")
@@ -44,160 +195,6 @@
             MenuBar.removeAction("tools.generate_text_action")
         }
     })
-
-    // Shows the dialog that allows users to input text
-    function showGenerateTextDialog() {
-        const generateTextDialog = new Blockbench.Dialog({
-            name: "Generate Text",
-            icon: icon,
-            buttons: ["Generate", "Cancel"],
-            form: {
-                input: {
-                    label: "Enter Text",
-                    type: "text",
-                    value: "",
-                    description: "Blockbench will take this and generate 3D text."
-                },
-                divider: "_",
-                letterSpace: {
-                    label: "Letter Spacing",
-                    type: "number",
-                    value: 0.3,
-                    min: 0,
-                    max: 6,
-                    description: "The amount of space between letters."
-                },
-                wordSpace: {
-                    label: "Word Spacing",
-                    type: "number",
-                    value: 2,
-                    min: 0,
-                    max: 6,
-                    description: "The amount of space between words."
-                },
-                depth: {
-                    label: "Depth",
-                    type: "number",
-                    value: 2,
-                    min: 0,
-                    max: 8,
-                    description: "The thickness of the letters. If 0, the letters will appear flat."
-                }
-            },
-
-            onConfirm(formData) {
-                if (formData.input == "") {
-                    Blockbench.showMessageBox({
-                        title: "No valid text",
-                        message: "Make sure you don't leave the field blank."
-                    })
-                } else {
-                    Blockbench.showQuickMessage("Generated text!")
-                    generateTextDialog.hide()
-
-                    // Character maps - each array in the 'cubes' component represents a cube.
-                    const charMap = {
-                        a: {
-                            width: 6,
-                            cubes: [
-                                [0, 0, 0, 2, 8, formData.depth],
-                                [2, 6, 0, 4, 8, formData.depth],
-                                [4, 0, 0, 6, 8, formData.depth],
-                                [2, 3, 0, 4, 5, formData.depth]
-                            ]
-                        },
-                        c: {
-                            width: 5,
-                            cubes: [
-                                [0, 0, 0, 2, 8, formData.depth],
-                                [2, 6, 0, 5, 8, formData.depth],
-                                [2, 0, 0, 5, 2, formData.depth]
-                            ]
-                        },
-                        e: {
-                            width: 5,
-                            cubes: [
-                                [0, 0, 0, 2, 8, formData.depth],
-                                [2, 6, 0, 5, 8, formData.depth],
-                                [2, 3, 0, 5, 5, formData.depth],
-                                [2, 0, 0, 5, 2, formData.depth]
-                            ]
-                        },
-                        f: {
-                            width: 5,
-                            cubes: [
-                                [0, 0, 0, 2, 8, formData.depth],
-                                [2, 6, 0, 5, 8, formData.depth],
-                                [2, 3, 0, 5, 5, formData.depth]
-                            ]
-                        },
-                        i: {
-                            width: 2,
-                            cubes: [
-                                [0, 0, 0, 2, 8, formData.depth]
-                            ]
-                        },
-                        l: {
-                            width: 5,
-                            cubes: [
-                                [0, 0, 0, 2, 8, formData.depth],
-                                [2, 0, 0, 5, 2, formData.depth]
-                            ]
-                        },
-                        o: {
-                            width: 6,
-                            cubes: [
-                                [0, 0, 0, 2, 8, formData.depth],
-                                [2, 6, 0, 4, 8, formData.depth],
-                                [4, 0, 0, 6, 8, formData.depth],
-                                [2, 0, 0, 4, 2, formData.depth]
-                            ]
-                        },
-                        u: {
-                            width: 6,
-                            cubes: [
-                                [0, 0, 0, 2, 8, formData.depth],
-                                [4, 0, 0, 6, 8, formData.depth],
-                                [2, 0, 0, 4, 2, formData.depth]
-                            ]
-                        },
-                        ".": {
-                            width: 2,
-                            cubes: [
-                                [0, 0, 0, 2, 2, formData.depth]
-                            ]
-                        },
-                        "!": {
-                            width: 2,
-                            cubes: [
-                                [0, 0, 0, 2, 2, formData.depth],
-                                [0, 4, 0, 2, 8, formData.depth]
-                            ]
-                        },
-                        " ": {
-                            width: formData.wordSpace,
-                            cubes: []
-                        }
-                    }
-                    
-                    let offset = 0
-                    let textGroup = new Group('text_' + formData.input).init()
-
-                    for (const char of formData.input.toLowerCase()) {
-                        for (const cube of charMap[char].cubes) {
-                            new Cube({
-                                name: "text_" + formData.input,
-                                from: [cube[0] + offset, cube[1], cube[2]],
-                                to: [cube[3] + offset, cube[4], cube[5]]
-                            }).addTo(textGroup).init()
-                        }
-
-                        offset += charMap[char].width + formData.letterSpace
-                    }
-                }
-            }
-        }).show()
-    }
 
     // Add about button
     function addAboutButton() {
