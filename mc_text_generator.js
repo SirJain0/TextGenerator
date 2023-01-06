@@ -55,7 +55,8 @@
                 input: {
                     label: "Enter Text",
                     type: "text",
-                    value: ""
+                    value: "",
+                    description: "Blockbench will take this and generate 3D text."
                 },
                 divider: "_",
                 letterSpace: {
@@ -63,14 +64,16 @@
                     type: "number",
                     value: 0.3,
                     min: 0,
-                    max: 2
+                    max: 6,
+                    description: "The amount of space between letters."
                 },
                 wordSpace: {
                     label: "Word Spacing",
                     type: "number",
                     value: 2,
                     min: 0,
-                    max: 3
+                    max: 6,
+                    description: "The amount of space between words."
                 }
             },
 
@@ -164,7 +167,7 @@
                             ]
                         },
                         " ": {
-                            width: 2,
+                            width: formData.wordSpace,
                             cubes: []
                         }
                     }
@@ -181,7 +184,7 @@
                             }).addTo(textGroup).init()
                         }
 
-                        offset += charMap[char].width + 0.3
+                        offset += charMap[char].width + formData.letterSpace
                     }
                 }
             }
