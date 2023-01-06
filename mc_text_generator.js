@@ -82,6 +82,13 @@
                     else {
                         Blockbench.showQuickMessage("Generated text!")
                         generateTextDialog.hide()
+
+                        if (Format?.id === "java_block") {
+                            Blockbench.showMessageBox({
+                                title: "Possible format restrictions",
+                                message: "Warning: The format you are in restricts all models to 3x3x3. If your generated text exceeds that limit, it may look distorted.<br><br>Note: Your text has still been generated."
+                            })
+                        }
     
                         // Character maps - each array in the 'cubes' component represents a cube.
                         const charMap = {
