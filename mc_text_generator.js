@@ -27,6 +27,7 @@
         onload() {
             addAboutButton()
 
+            // Define the dialog
             const generateTextDialog = new Blockbench.Dialog({
                 name: "Generate Text",
                 icon: icon,
@@ -50,7 +51,7 @@
                     wordSpace: {
                         label: "Word Spacing",
                         type: "number",
-                        value: 2,
+                        value: 0.3,
                         min: 0,
                         max: 6,
                         description: "The amount of space between words."
