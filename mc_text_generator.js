@@ -57,6 +57,21 @@
                     type: "text",
                     value: ""
                 },
+                divider: "_",
+                letterSpace: {
+                    label: "Letter Spacing",
+                    type: "number",
+                    value: 0.3,
+                    min: 0,
+                    max: 2
+                },
+                wordSpace: {
+                    label: "Word Spacing",
+                    type: "number",
+                    value: 2,
+                    min: 0,
+                    max: 3
+                }
             },
 
             onConfirm(formData) {
