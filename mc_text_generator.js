@@ -18,7 +18,7 @@
         author,
         description: "Generates Minecraft-styled text in cubes.",
         about: "To do",
-        tags: ["Minecraft", "Fonts", "Generator"],
+        tags: ["Minecraft", "Font", "Generator"],
         version: "1.0.0",
         min_version: "4.0.0",
         variant: "both",
