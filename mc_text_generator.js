@@ -83,13 +83,9 @@
                         Blockbench.showQuickMessage("Generated text!")
                         generateTextDialog.hide()
 
-                        if (Format?.id === "java_block") {
-                            Blockbench.showMessageBox({
-                                title: "Possible format restrictions",
-                                message: "<b>Warning:</b> The format you are in restricts all models to 3x3x3 blocks. If your generated text exceeds that limit, it may look distorted.<br><br><b>Note:</b> Your text has still been generated."
-                            })
-                        }
-    
+                        if (Format?.id === "java_block") showRestrictionWarning("48x48x48");
+                        if (Format?.id === "bedrock_block") showRestrictionWarning("30x30x30");
+                        
                         // Character maps - each array in the 'cubes' component represents a cube.
                         const charMap = {
                             a: {
@@ -232,6 +228,14 @@
         })
 
         about.children.push(aboutAction)
+    }
+
+    // Show a message box if the format has size restrictions
+    function showRestrictionWarning(units) {
+        Blockbench.showMessageBox({
+            title: "Possible format restrictions",
+            message: "<b>Warning:</b> The format you are in restricts all models to " + units + " units. If your generated text exceeds that limit, it may look distorted.<br><br><b>Note:</b> Your text has still been generated."
+        })
     }
 
     // Show about dialog
