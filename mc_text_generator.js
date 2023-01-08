@@ -165,6 +165,19 @@
                                     [0, 4, 0, 2, 8, formData.depth]
                                 ]
                             },
+                            "-": {
+                                width: 4,
+                                cubes: [
+                                    [0, 3, 0, 4, 5, formData.depth]
+                                ]
+                            },
+                            ":": {
+                                width: 3,
+                                cubes: [
+                                    [0, 0, 0, 2, 2, formData.depth],
+                                    [0, 4, 0, 2, 6, formData.depth]
+                                ]
+                            },
                             " ": {
                                 width: formData.wordSpace,
                                 cubes: []
