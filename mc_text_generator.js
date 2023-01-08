@@ -153,13 +153,13 @@
                                 ]
                             },
                             ".": {
-                                width: 2,
+                                width: 3,
                                 cubes: [
                                     [0, 0, 0, 2, 2, formData.depth]
                                 ]
                             },
                             "!": {
-                                width: 2,
+                                width: 3,
                                 cubes: [
                                     [0, 0, 0, 2, 2, formData.depth],
                                     [0, 4, 0, 2, 8, formData.depth]
