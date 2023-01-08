@@ -178,6 +178,19 @@
                                     [0, 4, 0, 2, 6, formData.depth]
                                 ]
                             },
+                            ";": {
+                                width: 3,
+                                cubes: [
+                                    [0, 4, 0, 2, 6, formData.depth],
+                                    [0, -1, 0, 2, 2, formData.depth]
+                                ]
+                            },
+                            ",": {
+                                width: 3,
+                                cubes: [
+                                    [0, -1, 0, 2, 2, formData.depth]
+                                ]
+                            },
                             " ": {
                                 width: formData.wordSpace,
                                 cubes: []
