@@ -63,6 +63,19 @@
                         value: 2,
                         max: 8,
                         description: "The thickness of the letters. If 0, the letters will appear flat."
+                    },
+                    checkboxSpacer: "_",
+                    javaCheckbox: {
+                        label: "Show Java Block/Item Warnings",
+                        type: "checkbox",
+                        value: "true",
+                        description: "If enabled, Blockbench will show an error box if text exceeds the 48x48x48 pixel limit in the Java Block/Item format. It is highly recommended to leave this on."
+                    },
+                    bedrockCheckbox: {
+                        label: "Show Bedrock Block Warnings",
+                        type: "checkbox",
+                        value: "true",
+                        description: "If enabled, Blockbench will show an error box if text exceeds the 30x30x30 pixel limit in the Bedrock Block format. It is highly recommended to leave this on."
                     }
                 },
     
