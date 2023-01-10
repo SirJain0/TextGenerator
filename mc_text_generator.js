@@ -96,8 +96,8 @@
                         Blockbench.showQuickMessage("Generated text!")
                         generateTextDialog.hide()
 
-                        if (Format?.id === "java_block") showRestrictionWarning("48x48x48");
-                        if (Format?.id === "bedrock_block") showRestrictionWarning("30x30x30");
+                        if (Format?.id === "java_block" && formData.javaCheckbox == true) showRestrictionWarning("48x48x48");
+                        if (Format?.id === "bedrock_block" && formData.bedrockCheckbox == true) showRestrictionWarning("30x30x30");
                         
                         // Character maps - each array in the 'cubes' component represents a cube.
                         const charMap = {
