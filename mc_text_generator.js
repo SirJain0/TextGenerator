@@ -1,5 +1,7 @@
 (async function() {
     let aboutAction
+    let textLength
+
     const id = "mc_text_generator"
     const name = "Minecraft Text Generator"
     const icon = "text_format"
@@ -96,8 +98,8 @@
                         Blockbench.showQuickMessage("Generated text!")
                         generateTextDialog.hide()
 
-                        if (Format?.id === "java_block" && formData.javaCheckbox == true) showRestrictionWarning("48x48x48");
-                        if (Format?.id === "bedrock_block" && formData.bedrockCheckbox == true) showRestrictionWarning("30x30x30");
+                        if (Format?.id === "java_block" && formData.javaCheckbox == true && textLength - formData.letterSpace <= 48) showRestrictionWarning("48x48x48");
+                        if (Format?.id === "bedrock_block" && formData.bedrockCheckbox == true && textLength - formData.letterSpace <= 30) showRestrictionWarning("30x30x30");
                         
                         // Character maps - each array in the 'cubes' component represents a cube.
                         const charMap = {
@@ -212,6 +214,7 @@
                         
                         let offset = 0
                         let textGroup = new Group('text_' + formData.input).init()
+                        textLength = 0
     
                         for (const char of formData.input.toLowerCase()) {
                             for (const cube of charMap[char].cubes) {
@@ -221,8 +224,9 @@
                                     to: [cube[3] + offset, cube[4], cube[5]]
                                 }).addTo(textGroup).init()
                             }
-    
+
                             offset += charMap[char].width + formData.letterSpace
+                            textLength = textLength + charMap[char].width + formData.letterSpace
                         }
                     }
                 }
