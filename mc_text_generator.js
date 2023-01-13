@@ -225,14 +225,17 @@
                         let offset = 0
                         let textGroup = new Group('text_' + formData.input).init()
                         textLength = 0
+                        let textCube
     
                         for (const char of formData.input.toLowerCase()) {
                             for (const cube of charMap[char].cubes) {
-                                new Cube({
+                                textCube = new Cube({
                                     name: "text_" + formData.input,
                                     from: [cube[0] + offset, cube[1], cube[2]],
                                     to: [cube[3] + offset, cube[4], cube[5]]
                                 }).addTo(textGroup).init()
+
+                                textCube.flip(0, 2.0, true)
                             }
 
                             offset += charMap[char].width + formData.letterSpace
