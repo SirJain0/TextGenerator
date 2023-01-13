@@ -135,7 +135,7 @@
                                 cubes: [
                                     [0, 0, 0, 2, 8, formData.depth],
                                     [2, 6, 0, 5, 8, formData.depth],
-                                    [2, 3, 0, 5, 5, formData.depth],
+                                    [2, 3, 0, 4, 5, formData.depth],
                                     [2, 0, 0, 5, 2, formData.depth]
                                 ]
                             },
@@ -144,7 +144,7 @@
                                 cubes: [
                                     [0, 0, 0, 2, 8, formData.depth],
                                     [2, 6, 0, 5, 8, formData.depth],
-                                    [2, 3, 0, 5, 5, formData.depth]
+                                    [2, 3, 0, 4, 5, formData.depth]
                                 ]
                             },
                             i: {
