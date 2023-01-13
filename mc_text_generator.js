@@ -46,16 +46,14 @@
                         label: "Letter Spacing",
                         type: "number",
                         min: 0,
-                        max: 6,
                         value: 0.3,
                         description: "The amount of space between letters."
                     },
                     wordSpace: {
                         label: "Word Spacing",
                         type: "number",
-                        value: 0.3,
+                        value: 1,
                         min: 0,
-                        max: 6,
                         description: "The amount of space between words."
                     },
                     depth: {
