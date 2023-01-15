@@ -1,7 +1,10 @@
 (async function() {
+
+    // Global variables
     let aboutAction
     let textLength
 
+    // Plugin information variables
     const id = "mc_text_generator"
     const name = "Minecraft Text Generator"
     const icon = "text_format"
