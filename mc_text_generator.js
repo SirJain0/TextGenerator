@@ -221,10 +221,12 @@
                         }
                         
                         let offset = 0
-                        let textGroup = new Group('text_' + formData.input).init()
+                        let textCube, textGroup
                         textLength = 0
-                        let textCube
     
+                        Undo.initEdit({outliner: true, elements: [], group: textGroup, selection: true});
+                        textGroup = new Group('text_' + formData.input).init()
+
                         for (const char of formData.input.toLowerCase()) {
                             for (const cube of charMap[char].cubes) {
                                 textCube = new Cube({
@@ -233,12 +235,16 @@
                                     to: [cube[3] + offset, cube[4], cube[5]]
                                 }).addTo(textGroup).init()
 
+                                Canvas.updateAll()
+                                textGroup.openUp().select()
                                 textCube.flip(0, 2.0, true)
                             }
 
                             offset += charMap[char].width + formData.letterSpace
                             textLength = textLength + charMap[char].width + formData.letterSpace
                         }
+
+                        Undo.finishEdit('Generated Text', {outliner: true, elements: selected, selection: true, group: textGroup});
                     }
                 }
             })
