@@ -170,18 +170,27 @@
                                 ]
                             },
                             o: {
-                                width: 6,
+                                width: 7,
                                 cubes: [
                                     [0, 0, 0, 2, 8, formData.depth],
-                                    [2, 6, 0, 4, 8, formData.depth],
-                                    [4, 0, 0, 6, 8, formData.depth],
-                                    [2, 0, 0, 4, 2, formData.depth]
+                                    [2, 6, 0, 5, 8, formData.depth],
+                                    [5, 0, 0, 7, 8, formData.depth],
+                                    [2, 0, 0, 5, 2, formData.depth]
                                 ]
                             },
                             u: {
                                 width: 6,
                                 cubes: [
                                     [0, 0, 0, 2, 8, formData.depth],
+                                    [4, 0, 0, 6, 8, formData.depth],
+                                    [2, 0, 0, 4, 2, formData.depth]
+                                ]
+                            },
+                            0: {
+                                width: 6,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth],
+                                    [2, 6, 0, 4, 8, formData.depth],
                                     [4, 0, 0, 6, 8, formData.depth],
                                     [2, 0, 0, 4, 2, formData.depth]
                                 ]
