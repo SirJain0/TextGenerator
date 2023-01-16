@@ -195,6 +195,33 @@
                                     [2, 0, 0, 4, 2, formData.depth]
                                 ]
                             },
+                            1: {
+                                width: 3,
+                                cubes: [
+                                    [0, 5, 0, 1, 7, formData.depth],
+                                    [1, 0, 0, 3, 8, formData.depth],
+                                ]
+                            },
+                            2: {
+                                width: 5,
+                                cubes: [
+                                    [0, 0, 0, 5, 2, formData.depth],
+                                    [0, 3, 0, 5, 5, formData.depth],
+                                    [0, 6, 0, 5, 8, formData.depth],
+                                    [0, 2, 0, 2, 3, formData.depth],
+                                    [3, 5, 0, 5, 6, formData.depth],
+                                ]
+                            },
+                            3: {
+                                width: 5,
+                                cubes: [
+                                    [0, 0, 0, 5, 2, formData.depth],
+                                    [0, 3, 0, 5, 5, formData.depth],
+                                    [0, 6, 0, 5, 8, formData.depth],
+                                    [3, 2, 0, 5, 3, formData.depth],
+                                    [3, 5, 0, 5, 6, formData.depth],
+                                ]
+                            },
                             ".": {
                                 width: 3,
                                 cubes: [
