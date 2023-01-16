@@ -320,6 +320,11 @@
                         textGroup = new Group('text_' + formData.input).init()
 
                         for (const char of formData.input.toLowerCase()) {
+
+                            // Check for an invalid character
+                            if (!charMap.hasOwnProperty(char)) continue
+
+                            // Generate cubes based on letter
                             for (const cube of charMap[char].cubes) {
                                 textCube = new Cube({
                                     name: "text_" + formData.input,
