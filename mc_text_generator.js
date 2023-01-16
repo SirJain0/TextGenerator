@@ -222,6 +222,42 @@
                                     [3, 5, 0, 5, 6, formData.depth],
                                 ]
                             },
+                            4: {
+                                width: 5,
+                                cubes: [
+                                    [0, 3, 0, 2, 8, formData.depth],
+                                    [2, 3, 0, 3, 5, formData.depth],
+                                    [3, 0, 0, 5, 8, formData.depth],
+                                ]
+                            },
+                            5: {
+                                width: 5,
+                                cubes: [
+                                    [0, 0, 0, 5, 2, formData.depth],
+                                    [0, 3, 0, 5, 5, formData.depth],
+                                    [0, 6, 0, 5, 8, formData.depth],
+                                    [3, 2, 0, 5, 3, formData.depth],
+                                    [0, 5, 0, 2, 6, formData.depth],
+                                ]
+                            },
+                            6: {
+                                width: 5,
+                                cubes: [
+                                    [0, 0, 0, 5, 2, formData.depth],
+                                    [0, 3, 0, 5, 5, formData.depth],
+                                    [0, 6, 0, 5, 8, formData.depth],
+                                    [3, 2, 0, 5, 3, formData.depth],
+                                    [0, 2, 0, 2, 3, formData.depth],
+                                    [0, 5, 0, 2, 6, formData.depth],
+                                ]
+                            },
+                            7: {
+                                width: 5,
+                                cubes: [
+                                    [0, 6, 0, 5, 8, formData.depth],
+                                    [3, 0, 0, 5, 6, formData.depth],
+                                ]
+                            },
                             ".": {
                                 width: 3,
                                 cubes: [
