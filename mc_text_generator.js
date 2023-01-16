@@ -98,19 +98,6 @@
                     else {
                         Blockbench.showQuickMessage("Generated text!")
                         generateTextDialog.hide()
-
-                        // Format checks
-                        if (
-                            Format?.id === "java_block" && 
-                            formData.javaCheckbox == true && 
-                            textLength - formData.letterSpace <= 48
-                        ) showRestrictionWarning("48x48x48");
-
-                        if (
-                            Format?.id === "bedrock_block" && 
-                            formData.bedrockCheckbox == true && 
-                            textLength - formData.letterSpace <= 30
-                        ) showRestrictionWarning("30x30x30");
                         
                         // Character maps - each array in the 'cubes' component represents a cube.
                         const charMap = {
@@ -351,6 +338,19 @@
 
                         Undo.finishEdit('Generated Text', {outliner: true, elements: selected, selection: true, group: textGroup});
                     }
+
+                    // Format checks
+                    if (
+                        Format?.id === "java_block" && 
+                        formData.javaCheckbox == true && 
+                        textLength - formData.letterSpace >= 48
+                    ) showRestrictionWarning("48x48x48")
+
+                    if (
+                        Format?.id === "bedrock_block" && 
+                        formData.bedrockCheckbox == true && 
+                        textLength - formData.letterSpace >= 30
+                    ) showRestrictionWarning("30x30x30")
                 }
             })
 
