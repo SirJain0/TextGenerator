@@ -285,23 +285,29 @@
                                 ]
                             },
                             ":": {
-                                width: 3,
+                                width: 2,
                                 cubes: [
                                     [0, 0, 0, 2, 2, formData.depth],
                                     [0, 4, 0, 2, 6, formData.depth]
                                 ]
                             },
                             ";": {
-                                width: 3,
+                                width: 2,
                                 cubes: [
                                     [0, 4, 0, 2, 6, formData.depth],
                                     [0, -1, 0, 2, 2, formData.depth]
                                 ]
                             },
                             ",": {
-                                width: 3,
+                                width: 2,
                                 cubes: [
                                     [0, -1, 0, 2, 2, formData.depth]
+                                ]
+                            },
+                            "'": {
+                                width: 2,
+                                cubes: [
+                                    [0, 6, 0, 2, 9, formData.depth]
                                 ]
                             },
                             " ": {
