@@ -326,7 +326,10 @@
                         for (const char of formData.input.toLowerCase()) {
 
                             // Check for an invalid character
-                            if (!charMap.hasOwnProperty(char)) continue
+                            if (!charMap.hasOwnProperty(char)) {
+                                console.log(char)
+                                continue
+                            }
 
                             // Generate cubes based on letter
                             for (const cube of charMap[char].cubes) {
