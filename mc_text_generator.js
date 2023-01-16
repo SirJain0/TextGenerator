@@ -174,12 +174,12 @@
                                 ]
                             },
                             0: {
-                                width: 6,
+                                width: 5,
                                 cubes: [
                                     [0, 0, 0, 2, 8, formData.depth],
-                                    [2, 6, 0, 4, 8, formData.depth],
-                                    [4, 0, 0, 6, 8, formData.depth],
-                                    [2, 0, 0, 4, 2, formData.depth]
+                                    [2, 6, 0, 3, 8, formData.depth],
+                                    [3, 0, 0, 5, 8, formData.depth],
+                                    [2, 0, 0, 3, 2, formData.depth]
                                 ]
                             },
                             1: {
@@ -336,14 +336,16 @@
                                     to: [cube[3] + offset, cube[4], cube[5]]
                                 }).addTo(textGroup).init()
 
-                                Canvas.updateAll()
-                                textGroup.openUp().select()
                                 textCube.flip(0, 2.0, true)
                             }
 
                             offset += charMap[char].width + formData.letterSpace
                             textLength = textLength + charMap[char].width + formData.letterSpace
                         }
+                        
+                        textGroup.openUp().select()
+                        Group.selected.origin[0] = textLength / 2.5 // Just an approximation
+                        Canvas.updateView({groups: [Group.selected]})
 
                         Undo.finishEdit('Generated Text', {outliner: true, elements: selected, selection: true, group: textGroup});
                     }
