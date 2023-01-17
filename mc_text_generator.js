@@ -1,7 +1,3 @@
-// Format IDs:
-// Skin: 'skin'
-// Image: 'image'
-
 (async function() {
 
     // Global variables
@@ -374,6 +370,7 @@
                 name: "Generate Text",
                 icon: icon,
                 description: "Input some text and let Blockbench generate the letters.",
+                condition: () => Format?.id !== "image" && Format?.id !== "skin",
                 click: () => generateTextDialog.show()
             })
 
