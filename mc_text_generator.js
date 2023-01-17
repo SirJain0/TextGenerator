@@ -276,7 +276,7 @@
                                 ]
                             },
                             "!": {
-                                width: 3,
+                                width: 2,
                                 cubes: [
                                     [0, 0, 0, 2, 2, formData.depth],
                                     [0, 4, 0, 2, 8, formData.depth]
@@ -314,10 +314,20 @@
                                     [0, 6, 0, 2, 9, formData.depth]
                                 ]
                             },
+                            "?": {
+                                width: 4,
+                                cubes: [
+                                    [1, 0, 0, 3, 2, formData.depth],
+                                    [1, 3, 0, 3, 5, formData.depth],
+                                    [0, 6, 0, 4, 8, formData.depth],
+                                    [2, 5, 0, 4, 6, formData.depth]
+                                ]
+                            },
                             " ": {
                                 width: formData.wordSpace,
                                 cubes: []
-                            }
+                            },
+                            
                         }
                         
                         let offset = 0
