@@ -2,7 +2,7 @@
 
     // Global variables
     let aboutAction
-    let textLength
+    let textLength, textGroup
 
     // Plugin information variables
     const id = "mc_text_generator"
@@ -157,12 +157,12 @@
                                 ]
                             },
                             o: {
-                                width: 7,
+                                width: 6,
                                 cubes: [
                                     [0, 0, 0, 2, 8, formData.depth],
-                                    [2, 6, 0, 5, 8, formData.depth],
-                                    [5, 0, 0, 7, 8, formData.depth],
-                                    [2, 0, 0, 5, 2, formData.depth]
+                                    [2, 6, 0, 4, 8, formData.depth],
+                                    [4, 0, 0, 6, 8, formData.depth],
+                                    [2, 0, 0, 4, 2, formData.depth]
                                 ]
                             },
                             u: {
@@ -317,7 +317,7 @@
                         }
                         
                         let offset = 0
-                        let textCube, textGroup
+                        let textCube
                         textLength = 0
     
                         Undo.initEdit({outliner: true, elements: [], group: textGroup, selection: true});
@@ -346,10 +346,7 @@
                             textLength = textLength + charMap[char].width + formData.letterSpace
                         }
                         
-                        textGroup.openUp().select()
-                        Group.selected.origin[0] = textLength / 2.5 // Just an approximation
-                        Canvas.updateView({groups: [Group.selected]})
-
+                        formatText()
                         Undo.finishEdit('Generated Text', {outliner: true, elements: selected, selection: true, group: textGroup});
                     }
 
@@ -385,6 +382,13 @@
             MenuBar.removeAction("tools.generate_text_action")
         }
     })
+
+    // Helper function that formats text
+    function formatText() {
+        textGroup.openUp().select()
+        Group.selected.origin[0] = textLength / 2 - 4
+        Canvas.updateView({groups: [Group.selected]})
+    }
 
     // Add about button
     function addAboutButton() {
