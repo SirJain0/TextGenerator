@@ -2,7 +2,7 @@
 
     // Global variables
     let aboutAction
-    let textLength, textGroup
+    let textLength, textGroup, xOffset
 
     // Plugin information variables
     const id = "mc_text_generator"
@@ -343,11 +343,13 @@
                             }
 
                             offset += charMap[char].width + formData.letterSpace
-                            textLength = textLength + charMap[char].width + formData.letterSpace
+                            textLength += charMap[char].width + formData.letterSpace
                         }
                         
                         formatText()
-                        Undo.finishEdit('Generated Text', {outliner: true, elements: selected, selection: true, group: textGroup});
+
+                        Undo.finishEdit('Generated Text', {outliner: true, elements: selected, selection: true, group: textGroup})                        
+                        Canvas.updateView({groups: [Group.selected], transform: true});
                     }
 
                     // Format checks
@@ -386,9 +388,15 @@
 
     // Helper function that formats text
     function formatText() {
+        xOffset = textLength / 2 - 4
         textGroup.openUp().select()
-        Group.selected.origin[0] = textLength / 2 - 4
-        Canvas.updateView({groups: [Group.selected]})
+
+        Group.selected.origin[0] = xOffset
+
+        textGroup.children.forEach(cube => {
+            cube.from[0] += xOffset;
+            cube.to[0]   += xOffset;                        
+        });
     }
 
     // Add about button
