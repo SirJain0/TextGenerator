@@ -327,7 +327,6 @@
                                 width: formData.wordSpace,
                                 cubes: []
                             },
-                            
                         }
                         
                         let offset = 0
