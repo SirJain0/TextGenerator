@@ -1,3 +1,7 @@
+// Format IDs:
+// Skin: 'skin'
+// Image: 'image'
+
 (async function() {
 
     // Global variables
