@@ -122,6 +122,16 @@
                                     [2, 0, 0, 5, 2, formData.depth]
                                 ]
                             },
+                            d: {
+                                width: 5,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth],
+                                    [2, 0, 0, 4, 2, formData.depth],
+                                    [2, 6, 0, 4, 8, formData.depth],
+                                    [3, 2, 0, 4, 6, formData.depth],
+                                    [4, 1, 0, 5, 7, formData.depth],
+                                ]
+                            },
                             e: {
                                 width: 5,
                                 cubes: [
