@@ -106,12 +106,12 @@
                         // Character maps - each array in the 'cubes' component represents a cube.
                         const charMap = {
                             a: {
-                                width: 6,
+                                width: 5,
                                 cubes: [
                                     [0, 0, 0, 2, 8, formData.depth],
-                                    [2, 6, 0, 4, 8, formData.depth],
-                                    [4, 0, 0, 6, 8, formData.depth],
-                                    [2, 3, 0, 4, 5, formData.depth]
+                                    [2, 6, 0, 3, 8, formData.depth],
+                                    [3, 0, 0, 5, 8, formData.depth],
+                                    [2, 3, 0, 3, 5, formData.depth]
                                 ]
                             },
                             c: {
@@ -201,9 +201,9 @@
                                 width: 7,
                                 cubes: [
                                     [0, 0, 0, 2, 8, formData.depth],
-                                    [2, 4, 0, 3, 7, formData.depth],
-                                    [3, 3, 0, 4, 6, formData.depth],
-                                    [4, 4, 0, 5, 7, formData.depth],
+                                    [2, 3, 0, 3, 7, formData.depth],
+                                    [3, 2, 0, 4, 6, formData.depth],
+                                    [4, 3, 0, 5, 7, formData.depth],
                                     [5, 0, 0, 7, 8, formData.depth],
                                 ]
                             },
@@ -212,9 +212,8 @@
                                 cubes: [
                                     [0, 0, 0, 2, 8, formData.depth],
                                     [4, 0, 0, 6, 8, formData.depth],
-                                    [2, 3.5, 0, 3, 6.5, formData.depth],
-                                    [3, 2.5, 0, 4, 5.5, formData.depth],
-                                    [4, 0, 0, 6, 8, formData.depth],
+                                    [2, 3, 0, 3, 6, formData.depth],
+                                    [3, 2, 0, 4, 5, formData.depth],
                                 ]
                             },
                             o: {
@@ -233,6 +232,24 @@
                                     [3, 3, 0, 5, 8, formData.depth],
                                     [2, 6, 0, 3, 8, formData.depth],
                                     [2, 3, 0, 3, 5, formData.depth],
+                                ]
+                            },
+                            r: {
+                                width: 5,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth],
+                                    [2, 6, 0, 3, 8, formData.depth],
+                                    [2, 3, 0, 3, 5, formData.depth],
+                                    [3, 4.5, 0, 5, 8, formData.depth],
+                                    [3, 0, 0, 5, 3.5, formData.depth],
+                                    [3, 3.5, 0, 4, 4.5, formData.depth],
+                                ]
+                            },
+                            t: {
+                                width: 5,
+                                cubes: [
+                                    [1.5, 0, 0, 3.5, 6, formData.depth],
+                                    [0, 6, 0, 5, 8, formData.depth],
                                 ]
                             },
                             u: {
