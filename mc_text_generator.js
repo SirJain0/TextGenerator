@@ -70,20 +70,20 @@
                     generateLayer: {
                         label: "Generate Layer",
                         type: "checkbox",
-                        value: "false",
+                        value: false,
                         description: "Generates a second layer to the text which can be used for stuff like dropshadows. Note: Your depth field needs to be 0 in order for the setting to work."
                     },
                     checkboxSpacer: "_",
                     javaCheckbox: {
                         label: "Show Java Block/Item Warnings",
                         type: "checkbox",
-                        value: "true",
+                        value: true,
                         description: "If enabled, Blockbench will show an error box if text exceeds the 48x48x48 pixel limit in the Java Block/Item format. It is highly recommended to leave this on."
                     },
                     bedrockCheckbox: {
                         label: "Show Bedrock Block Warnings",
                         type: "checkbox",
-                        value: "true",
+                        value: true,
                         description: "If enabled, Blockbench will show an error box if text exceeds the 30x30x30 pixel limit in the Bedrock Block format. It is highly recommended to leave this on."
                     }
                 },
