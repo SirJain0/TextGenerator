@@ -197,6 +197,26 @@
                                     [2, 0, 0, 5, 2, formData.depth]
                                 ]
                             },
+                            m: {
+                                width: 7,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth],
+                                    [2, 4, 0, 3, 7, formData.depth],
+                                    [3, 3, 0, 4, 6, formData.depth],
+                                    [4, 4, 0, 5, 7, formData.depth],
+                                    [5, 0, 0, 7, 8, formData.depth],
+                                ]
+                            },
+                            n: {
+                                width: 6,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth],
+                                    [4, 0, 0, 6, 8, formData.depth],
+                                    [2, 3.5, 0, 3, 6.5, formData.depth],
+                                    [3, 2.5, 0, 4, 5.5, formData.depth],
+                                    [4, 0, 0, 6, 8, formData.depth],
+                                ]
+                            },
                             o: {
                                 width: 6,
                                 cubes: [
