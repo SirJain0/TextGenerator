@@ -99,14 +99,6 @@
 
                         generateTextDialog.hide()
                     }
-                    
-                    // Check - can the user generate a layer?
-                    else if (formData.depth !== 0 && formData.layerCube === "true") {
-                        Blockbench.showMessageBox({
-                            title: "Incompatible settings",
-                            message: "If you want to generate a layer, please make sure the 'depth' field is 0."
-                        })
-                    }
 
                     // Run if everything is okay
                     else {
@@ -364,6 +356,14 @@
                                     }).addTo(textGroup).init()
 
                                     layerCube.flip(0, 2.0, true)
+                                }
+
+                                // Check if user wanted to generate a layer but the depth was not 0
+                                else if (formData.generateLayer == true && formData.depth !== 0) {
+                                    Blockbench.showMessageBox({
+                                        title: "Incompatible settings",
+                                        message: "If you want to generate a layer, please make sure the 'depth' field is 0."
+                                    })
                                 }
                             }
 
