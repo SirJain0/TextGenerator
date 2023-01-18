@@ -67,6 +67,12 @@
                         max: 8,
                         description: "The thickness of the letters. If 0, the letters will appear flat."
                     },
+                    generateLayer: {
+                        label: "Generate Layer",
+                        type: "checkbox",
+                        value: "false",
+                        description: "Generates a second layer to the text which can be used for stuff like dropshadows. Note: Your depth field needs to be 0 in order for the setting to work."
+                    },
                     checkboxSpacer: "_",
                     javaCheckbox: {
                         label: "Show Java Block/Item Warnings",
@@ -92,8 +98,16 @@
                         })
 
                         generateTextDialog.hide()
-                    } 
+                    }
                     
+                    // Check - can the user generate a layer?
+                    else if (formData.depth !== 0 && formData.layerCube === "true") {
+                        Blockbench.showMessageBox({
+                            title: "Incompatible settings",
+                            message: "If you want to generate a layer, please make sure the 'depth' field is 0."
+                        })
+                    }
+
                     // Run if everything is okay
                     else {
                         Blockbench.showQuickMessage("Generated text!")
@@ -317,7 +331,7 @@
                         }
                         
                         let offset = 0
-                        let textCube
+                        let textCube, layerCube
                         textLength = 0
     
                         Undo.initEdit({outliner: true, elements: [], group: textGroup, selection: true});
@@ -340,6 +354,17 @@
                                 }).addTo(textGroup).init()
 
                                 textCube.flip(0, 2.0, true)
+
+                                // Generate layer if user checked the box
+                                if (formData.generateLayer == true && formData.depth == 0) {
+                                    layerCube = new Cube({
+                                        name: "text_" + formData.input + "_layer",
+                                        from: [cube[0] + 0.2 + offset, cube[1] - 0.2, cube[2] + 0.2],
+                                        to: [cube[3] + offset + 0.2, cube[4] - 0.2, cube[5] + 0.2]
+                                    }).addTo(textGroup).init()
+
+                                    layerCube.flip(0, 2.0, true)
+                                }
                             }
 
                             offset += charMap[char].width + formData.letterSpace
@@ -347,12 +372,10 @@
                         }
                         
                         formatText()
-
-                        Undo.finishEdit('Generated Text', {outliner: true, elements: selected, selection: true, group: textGroup})                        
                         Canvas.updateView({groups: [Group.selected], transform: true});
+                        Undo.finishEdit("Generated Text", {outliner: true, elements: selected, selection: true, group: textGroup});
                     }
 
-                    // Format checks
                     if (
                         Format?.id === "java_block" && 
                         formData.javaCheckbox == true && 
@@ -425,8 +448,8 @@
     // Show a message box if the format has size restrictions
     function showRestrictionWarning(units) {
         Blockbench.showMessageBox({
-            title: "Possible format restrictions",
-            message: "<b>Warning:</b> The format you are in restricts all models to " + units + " units. If your generated text exceeds that limit, it may look distorted.<br><br><b>Note:</b> Your text has still been generated."
+            title: "Format restrictions",
+            message: "The format you are in restricts all models to " + units + " units. Your text exceeds that limit. Please make your text smaller using `Transform -> Scale`, otherwise it will break in-game.<br><br>Your text has still been generated."
         })
     }
 
