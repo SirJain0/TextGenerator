@@ -449,14 +449,6 @@
 
                                     layerCube.flip(0, 2.0, true)
                                 }
-
-                                // Check if user wanted to generate a layer but the depth was not 0
-                                else if (formData.generateLayer == true && formData.depth !== 0) {
-                                    Blockbench.showMessageBox({
-                                        title: "Incompatible settings",
-                                        message: "If you want to generate a layer, please make sure the 'depth' field is 0."
-                                    })
-                                }
                             }
 
                             offset += charMap[char].width + formData.letterSpace
@@ -468,6 +460,7 @@
                         Undo.finishEdit("Generated Text", {outliner: true, elements: selected, selection: true, group: textGroup});
                     }
 
+                    // Check for format restrictions
                     if (
                         Format?.id === "java_block" && 
                         formData.javaCheckbox == true && 
@@ -479,6 +472,14 @@
                         formData.bedrockCheckbox == true && 
                         textLength - formData.letterSpace >= 30
                     ) showRestrictionWarning("30x30x30")
+
+                    // Check if user wanted to generate a layer but the depth was not 0
+                    if (formData.generateLayer == true && formData.depth !== 0) {
+                        Blockbench.showMessageBox({
+                            title: "Incompatible settings",
+                            message: "If you want to generate a layer, please make sure the 'depth' field is 0."
+                        })
+                    }
                 }
             })
 
