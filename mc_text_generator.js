@@ -172,6 +172,14 @@
                                     [0, 0, 0, 2, 8, formData.depth]
                                 ]
                             },
+                            j: {
+                                width: 5,
+                                cubes: [
+                                    [0, 0, 0, 5, 2, formData.depth],
+                                    [3, 2, 0, 5, 8, formData.depth],
+                                    [1, 6, 0, 3, 8, formData.depth]
+                                ]
+                            },
                             l: {
                                 width: 5,
                                 cubes: [
