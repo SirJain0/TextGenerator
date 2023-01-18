@@ -180,6 +180,16 @@
                                     [1, 6, 0, 3, 8, formData.depth]
                                 ]
                             },
+                            k: {
+                                width: 5,
+                                cubes: [
+                                    [0, 0, 0, 2, 8, formData.depth],
+                                    [2, 2.5, 0, 3, 5.5, formData.depth],
+                                    [3, 0, 0, 4, 8, formData.depth],
+                                    [4, 5, 0, 5, 8, formData.depth],
+                                    [4, 0, 0, 5, 3, formData.depth],
+                                ]
+                            },
                             l: {
                                 width: 5,
                                 cubes: [
