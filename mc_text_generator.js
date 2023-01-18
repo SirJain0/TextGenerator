@@ -110,7 +110,7 @@
 
                     // Run if everything is okay
                     else {
-                        Blockbench.showQuickMessage("Generated text!")
+                        Blockbench.showQuickMessage("Generated text: '" + formData.input + "'")
                         generateTextDialog.hide()
                         
                         // Character maps - each array in the 'cubes' component represents a cube.
