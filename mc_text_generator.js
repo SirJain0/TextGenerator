@@ -149,6 +149,15 @@
                                     [2, 3, 0, 4, 5, formData.depth]
                                 ]
                             },
+                            g: {
+                                width: 5,
+                                cubes: [
+                                    [0, 2, 0, 2, 8, formData.depth],
+                                    [0, 0, 0, 5, 2, formData.depth],
+                                    [3, 2, 0, 5, 4, formData.depth],
+                                    [2, 6, 0, 5, 8, formData.depth],
+                                ]
+                            },
                             h: {
                                 width: 7,
                                 cubes: [
