@@ -292,6 +292,15 @@
                                     [2, 0, 0, 4, 2, formData.depth]
                                 ]
                             },
+                            v: {
+                                width: 5.75,
+                                cubes: [
+                                    [0, 2, 0, 2, 8, formData.depth],
+                                    [3.75, 2, 0, 5.75, 8, formData.depth],
+                                    [0.75, 1, 0, 5, 2, formData.depth],
+                                    [1.75, 0, 0, 4, 1, formData.depth],
+                                ]
+                            },
                             w: {
                                 width: 6.5,
                                 cubes: [
