@@ -2,7 +2,7 @@
 
     // Global variables
     let aboutAction
-    let textLength, textGroup, xOffset, decimalCubes
+    let textLength, textGroup, xOffset
 
     // Plugin information variables
     const id = "mc_text_generator"
@@ -468,7 +468,6 @@
                         let offset = 0
                         let textCube, layerCube
                         textLength = 0
-                        decimalCubes = 0
     
                         Undo.initEdit({outliner: true, elements: [], group: textGroup, selection: true});
                         textGroup = new Group('text_' + formData.input).init()
@@ -490,12 +489,6 @@
                                 }).addTo(textGroup).init()
 
                                 textCube.flip(0, 2.0, true)
-
-                                if (
-                                    !(cube[4] - cube[1] % 0) ||
-                                    !(cube[5] - cube[2] % 0) ||
-                                    !(cube[6] - cube[3] % 0)
-                                ) decimalCubes++
 
                                 // Generate layer if user checked the box
                                 if (formData.generateLayer == true && formData.depth == 0) {
@@ -525,25 +518,19 @@
                         textLength - formData.letterSpace >= 48
                     ) showRestrictionWarning("48x48x48")
 
-                    else if (
+                    if (
                         Format?.id === "bedrock_block" && 
                         formData.bedrockCheckbox == true && 
                         textLength - formData.letterSpace >= 30
                     ) showRestrictionWarning("30x30x30")
 
                     // Check if user wanted to generate a layer but the depth was not 0
-                    else if (formData.generateLayer == true && formData.depth !== 0) {
+                    if (formData.generateLayer == true && formData.depth !== 0) {
                         Blockbench.showMessageBox({
                             title: "Incompatible settings",
                             message: "If you want to generate a layer, please make sure the 'depth' field is 0."
                         })
                     }
-
-                    else if (
-                        (Format?.id === "modded_entity" || 
-                        (Format?.id === "optifine_entity" && Project.box_uv)) &&
-                        decimalCubes > 0
-                    ) showDecimalWarning()
                 }
             })
 
@@ -565,13 +552,6 @@
             MenuBar.removeAction("tools.generate_text_action")
         }
     })
-
-    function showDecimalWarning() {
-        Blockbench.showMessageBox({
-            title: "Format restriction warning",
-            message: "Some characters in the text you generated contain decimals, which your format doesn't support. Text may look slightly distorted<br><br>Note: Your text has still been generated."
-        })
-    }
 
     // Helper function that formats text
     function formatText() {
