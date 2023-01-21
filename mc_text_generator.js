@@ -173,11 +173,11 @@
                                 ]
                             },
                             h: {
-                                width: 7,
+                                width: 5,
                                 cubes: [
                                     [0, 0, 0, 2, 8, formData.depth],
-                                    [5, 0, 0, 7, 8, formData.depth],
-                                    [2, 3, 0, 5, 5, formData.depth]
+                                    [3, 0, 0, 5, 8, formData.depth],
+                                    [2, 3, 0, 3, 5, formData.depth]
                                 ]
                             },
                             i: {
