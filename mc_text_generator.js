@@ -380,10 +380,10 @@
                             5: {
                                 width: 5,
                                 cubes: [
-                                    [0, 0, 0, 4.5, 2, formData.depth],
-                                    [0, 3, 0, 4.5, 5, formData.depth],
+                                    [0, 0, 0, 4.25, 2, formData.depth],
+                                    [0, 3, 0, 4.25, 5, formData.depth],
                                     [0, 6, 0, 5, 8, formData.depth],
-                                    [3, 2, 0, 4.5, 3, formData.depth],
+                                    [3, 2, 0, 4.25, 3, formData.depth],
                                     [0, 5, 0, 2, 6, formData.depth],
                                     [4.25, 0.5, 0, 5, 4.5, formData.depth],
                                 ]
