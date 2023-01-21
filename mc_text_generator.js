@@ -323,6 +323,16 @@
                                     [1.25, 2.25, 0, 3.75, 5.75, formData.depth],
                                 ]
                             },
+                            y: {
+                                width: 7,
+                                cubes: [
+                                    [0, 4, 0, 2, 8, formData.depth],
+                                    [1, 3, 0, 3, 6, formData.depth],
+                                    [5, 4, 0, 7, 8, formData.depth],
+                                    [4, 3, 0, 6, 6, formData.depth],
+                                    [2.25, 0, 0, 4.75, 5, formData.depth],
+                                ]
+                            },
                             0: {
                                 width: 5,
                                 cubes: [
