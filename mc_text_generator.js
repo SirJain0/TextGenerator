@@ -518,14 +518,14 @@
                         textLength - formData.letterSpace >= 48
                     ) showRestrictionWarning("48x48x48")
 
-                    if (
+                    else if (
                         Format?.id === "bedrock_block" && 
                         formData.bedrockCheckbox == true && 
                         textLength - formData.letterSpace >= 30
                     ) showRestrictionWarning("30x30x30")
 
                     // Check if user wanted to generate a layer but the depth was not 0
-                    if (formData.generateLayer == true && formData.depth !== 0) {
+                    else if (formData.generateLayer == true && formData.depth !== 0) {
                         Blockbench.showMessageBox({
                             title: "Incompatible settings",
                             message: "If you want to generate a layer, please make sure the 'depth' field is 0."
