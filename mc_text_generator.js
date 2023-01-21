@@ -456,6 +456,13 @@
                                     [0, 3, 0, 4, 5, formData.depth]
                                 ]
                             },
+                            "+": {
+                                width: 4,
+                                cubes: [
+                                    [0, 3.25, 0, 4, 4.75, formData.depth],
+                                    [1.25, 2, 0, 2.75, 6, formData.depth]
+                                ]
+                            },
                             ":": {
                                 width: 2,
                                 cubes: [
