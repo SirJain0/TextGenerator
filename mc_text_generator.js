@@ -550,9 +550,15 @@
 
                             letterGroup.addTo(textGroup)
                         }
+
+                        textGroup.children.forEach(group => {
+                            group.children.forEach(cube => {
+                                cube.moveVector(textLength / 2 - 4, 0)
+                            })
+                        })
                         
-                        formatText()
-                        Canvas.updateView({groups: [Group.selected], transform: true});
+                        editBone()
+                        Canvas.updateView({groups: [textGroup, Group.selected], transform: true});
                         Undo.finishEdit("Generated Text", {elements: selected});
                     }
 
@@ -598,17 +604,9 @@
         }
     })
 
-    // Helper function that formats text
-    function formatText() {
-        xOffset = textLength / 2 - 4
+    // Helper function that edits the bone
+    function editBone() {
         textGroup.openUp().select()
-
-        Group.selected.origin[0] = xOffset
-
-        textGroup.children.forEach(cube => {
-            cube.from[0] += xOffset;
-            cube.to[0]   += xOffset;                        
-        });
     }
 
     function getRandomInt(max) {
