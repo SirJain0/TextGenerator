@@ -2,7 +2,7 @@
 
     // Global variables
     let aboutAction
-    let textLength, textGroup, xOffset
+    let textLength, textGroup, xOffset, randNum
 
     // Plugin information variables
     const id = "mc_text_generator"
@@ -519,12 +519,15 @@
                                 continue
                             }
 
+                            randNum = getRandomInt(8)
+
                             // Generate cubes based on letter
                             for (const cube of charMap[char].cubes) {
                                 textCube = new Cube({
                                     name: "text_" + formData.input,
                                     from: [cube[0] + offset, cube[1], cube[2]],
-                                    to: [cube[3] + offset, cube[4], cube[5]]
+                                    to: [cube[3] + offset, cube[4], cube[5]],
+                                    color: randNum
                                 }).addTo(textGroup).init()
 
                                 textCube.flip(0, 2.0, true)
@@ -603,6 +606,10 @@
             cube.from[0] += xOffset;
             cube.to[0]   += xOffset;                        
         });
+    }
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
     }
 
     // Add about button
