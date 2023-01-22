@@ -508,7 +508,7 @@
                         let textCube, layerCube
                         textLength = 0
     
-                        Undo.initEdit({outliner: true, elements: [], group: textGroup, selection: true});
+                        Undo.initEdit({group: textGroup, elements: [], outliner: true})
                         textGroup = new Group('text_' + formData.input).init()
 
                         for (const char of formData.input.toLowerCase()) {
@@ -550,7 +550,7 @@
                         
                         formatText()
                         Canvas.updateView({groups: [Group.selected], transform: true});
-                        Undo.finishEdit("Generated Text", {outliner: true, elements: selected, selection: true, group: textGroup});
+                        Undo.finishEdit("Generated Text", {elements: selected});
                     }
 
                     // Check for format restrictions
