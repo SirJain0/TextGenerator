@@ -33,7 +33,7 @@
             addAboutButton()
 
             // Define the dialog
-            const generateTextDialog = new Blockbench.Dialog({
+            const generateTextDialog = new Blockbench.Dialog("generate_text_dialog", {
                 name: "Generate Text",
                 icon: icon,
                 buttons: ["Generate", "Cancel"],
@@ -559,7 +559,7 @@
                         
                         editBone()
                         Canvas.updateView({groups: [textGroup, Group.selected], transform: true});
-                        Undo.finishEdit("Generated Text", {elements: selected});
+                        Undo.finishEdit("Generated Text", {elements: selected, group: textGroup, outliner: true});
                     }
 
                     // Check for format restrictions
