@@ -10,4 +10,4 @@ To use this plugin, go to <b>Tools > Generate Text</b>. Simply enter some text, 
 Please report any bugs or suggestions you may have to make this plugin more enjoyable for everyone.
 <br>
 <br>
-[Link here]
+https://www.blockbench.net/plugins/mc_text_generator
