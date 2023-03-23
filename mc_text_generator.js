@@ -706,13 +706,16 @@
                         align-items: center;
                         gap: 10px;
                     }
+
                     dialog#about .dialog_content {
                         text-align: left!important;
                         margin: 0!important;
                     }
+
                     dialog#about .socials {
                         padding: 0!important;
                     }
+                    
                     dialog#about #banner {
                         background-color: var(--color-accent);
                         color: var(--color-accent_text);
