@@ -113,7 +113,7 @@
                     if (formData.input == "") {
                         Blockbench.showMessageBox({
                             title: "No valid text",
-                            message: "Make sure you don't leave the field blank."
+                            message: "Make sure you don't leave the text field blank."
                         })
 
                         generateTextDialog.hide()
@@ -652,14 +652,6 @@
                         formData.bedrockCheckbox == true && 
                         (textLength - formData.letterSpace >= 30 || 9*numLines >= 30)
                     ) showRestrictionWarning("`30x30x30`")
-
-                    // Check if user wanted to generate a layer but the depth was not 0
-                    else if (formData.generateLayer == true && formData.depth !== 0) {
-                        Blockbench.showMessageBox({
-                            title: "Incompatible settings",
-                            message: "If you want to generate a layer, please make sure the 'depth' field is 0."
-                        })
-                    }
                 }
             })
 
