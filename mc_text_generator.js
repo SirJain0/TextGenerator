@@ -72,8 +72,7 @@
                         label: "Depth",
                         type: "number",
                         min: 0,
-                        value: 2,
-                        max: 8,
+                        value: 4,
                         description: "The thickness of the letters. If 0, the letters will appear flat."
                     },
                     rotation: {
