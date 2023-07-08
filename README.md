@@ -1,4 +1,4 @@
-# Minecraft Text Generator
+# Text Generator
 Generates Minecraft-styled text in cubes.
 ## Worth noting:
 - Some formats may break the look of the text because of size restrictions.
